@@ -8,7 +8,7 @@ import githubLight from "../../assets/github-light.svg";
 import githubDark from "../../assets/github-dark.svg";
 import linkedinLight from "../../assets/linkedin-light.svg";
 import linkedinDark from "../../assets/linkedin-dark.svg";
-import CV from "../../assets/cv.pdf"
+import AvinashCV from "../../assets/Avinash_Mourya_CV.pdf"
 import { useTheme } from "../../component/ThemeContext";
 
 function Hero() {
@@ -54,7 +54,7 @@ function Hero() {
           </a>
         </span>
         <p className={styles.description}>I'm an engineering student, who is passionate about coding. I have a keen interest in web development.</p>
-        <a href={CV} download>
+        <a href={AvinashCV} download>
           <button className="hover" download>
             Resume
           </button>
