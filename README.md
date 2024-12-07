@@ -45,12 +45,8 @@ To run the project locally, follow these steps:
 - `public/`: Static files like images and favicon.  
 - `package.json`: Project dependencies and scripts.  
 - `vite.config.js`: Configuration for Vite.  
-
-## 📸 Preview  
-
-![Portfolio Screenshot](path-to-screenshot.png)  
-> Replace with a screenshot or GIF of your website.  
-
+ 
+ 
 ## 📜 License  
 
 This project is licensed under the [MIT License](LICENSE).  
