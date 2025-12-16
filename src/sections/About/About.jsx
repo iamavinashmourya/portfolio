@@ -4,7 +4,7 @@ import SectionHeader from "../../components/ui/SectionHeader";
 const About = () => {
     return (
         <section id="about" className="py-20 px-8 max-w-7xl mx-auto">
-            <SectionHeader title="OPERATOR_BIO" subtitle="[IDENTITY_VERIFIED]" />
+            <SectionHeader title="ABOUT" subtitle="[IDENTITY_VERIFIED]" />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="md:col-span-2">

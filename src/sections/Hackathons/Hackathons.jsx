@@ -29,7 +29,7 @@ const Hackathons = () => {
 
     return (
         <section id="hackathons" className="py-20 pb-24 px-8 max-w-7xl mx-auto">
-            <SectionHeader title="FIELD_OPERATIONS" subtitle="[EVENT_LOGS]" />
+            <SectionHeader title="HACKATHONS" subtitle="[EVENT_LOGS]" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {events.map((ev, i) => (
