@@ -1,5 +1,5 @@
 :root {
-  --background-color: #fff;
+  --background-color: #050505;
   --btn-color: #0987f2;
   --btn-text-color: #fff;
   --project-card-bg: #ffffff00;
@@ -18,18 +18,7 @@
   --footer-text-color: #bbb;
 }
 
-body {
-  background-color: var(--background-color);
-  display: flex;
-  justify-content: center;
-  margin: 0 auto 68px;
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-}
+/* Body and Root styles removed to allow Tailwind full-width layout */
 
 h1,
 h2,
@@ -57,33 +46,37 @@ h3 {
 }
 
 h1 {
-    font-family: 'Rubik', sans-serif;
-    font-size: 32px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 32px;
 }
 
 p {
-    font-size: 16px;
-    font-weight: 300;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 .sectionTitle {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-@media (width >= 800px) {
+@media (width >=800px) {
   #root {
     gap: 100px;
   }
+
   h1 {
     font-size: 40px;
   }
-  h2, h3 {
+
+  h2,
+  h3 {
     font-size: 24px;
   }
+
   p {
     font-size: 20px;
   }
@@ -93,15 +86,16 @@ p {
   }
 }
 
-  @media (width >= 1400px) {
-    #root {
-      gap: 200px;
-    }
-    h1 {
-      font-size: 48px;
-    
-    .sectionTitle {
-      margin-bottom: 75px;
-    }
+@media (width >=1400px) {
+  #root {
+    gap: 200px;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  .sectionTitle {
+    margin-bottom: 75px;
   }
 }
