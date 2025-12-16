@@ -36,7 +36,7 @@ const ProjectCardCyber = ({ src, link, title, desc, tech }) => {
 
 const ProjectsCyber = () => {
     return (
-        <section id="projects" className="py-20 px-8 max-w-7xl mx-auto">
+        <section id="projects" className="pt-40 pb-20 px-8 max-w-7xl mx-auto">
             <SectionHeader title="DEPLOYED_SYSTEMS" subtitle="[PROJECT_ARCHIVE]" />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -7,8 +7,9 @@ import Experience from "./sections/Experience/Experience";
 import ProjectsCyber from "./sections/Projects/ProjectsCyber";
 import Hackathons from "./sections/Hackathons/Hackathons";
 import Maintenance from "./sections/Maintenance/Maintenance";
+import ActivityHub from "./sections/Activity/ActivityHub";
 
-const MAINTENANCE_MODE = true; // Set to false to show the full portfolio
+const MAINTENANCE_MODE = false;
 
 function App() {
   if (MAINTENANCE_MODE) {
@@ -19,10 +20,11 @@ function App() {
     <main className="min-h-screen bg-dark text-white relative">
       <MatrixBackground />
       <Navbar />
-      <div className="pt-24"> {/* Add padding for fixed navbar since Hero is no longer first */}
+      <div className="pt-24">
         <About />
         <Experience />
         <CommandDeck />
+        <ActivityHub />
         <ProjectsCyber />
         <Hackathons />
       </div>
