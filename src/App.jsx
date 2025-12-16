@@ -9,7 +9,7 @@ import Hackathons from "./sections/Hackathons/Hackathons";
 import Maintenance from "./sections/Maintenance/Maintenance";
 import ActivityHub from "./sections/Activity/ActivityHub";
 
-const MAINTENANCE_MODE = false;
+const MAINTENANCE_MODE = true;
 
 function App() {
   if (MAINTENANCE_MODE) {
