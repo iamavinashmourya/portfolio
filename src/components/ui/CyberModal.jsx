@@ -15,7 +15,7 @@ const CyberModal = ({ isOpen, onClose, title, children }) => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={onClose}
-                        className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex justify-center items-center p-4"
+                        className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex justify-center items-center p-4"
                     >
                         {/* Modal Content */}
                         <motion.div
@@ -23,10 +23,16 @@ const CyberModal = ({ isOpen, onClose, title, children }) => {
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.9, opacity: 0, y: 20 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-[#0a0a0a] border border-primary/30 w-full max-w-2xl max-h-[80vh] overflow-y-auto rounded-xl shadow-[0_0_30px_rgba(57,255,20,0.1)] relative scrollbar-hide"
+                            className="bg-black border border-white/10 w-full max-w-2xl max-h-[80vh] flex flex-col rounded-none relative group"
                         >
+                            {/* Corner Brackets (CyberCard Style) */}
+                            <div className="absolute top-0 left-0 w-2 h-2 border-l-2 border-t-2 border-white/30 group-hover:border-primary transition-colors z-20" />
+                            <div className="absolute top-0 right-0 w-2 h-2 border-r-2 border-t-2 border-white/30 group-hover:border-primary transition-colors z-20" />
+                            <div className="absolute bottom-0 left-0 w-2 h-2 border-l-2 border-b-2 border-white/30 group-hover:border-primary transition-colors z-20" />
+                            <div className="absolute bottom-0 right-0 w-2 h-2 border-r-2 border-b-2 border-white/30 group-hover:border-primary transition-colors z-20" />
+
                             {/* Header */}
-                            <div className="sticky top-0 bg-[#0a0a0a] border-b border-white/10 p-6 flex justify-between items-center z-10">
+                            <div className="bg-[#0a0a0a] border-b border-white/10 p-6 flex justify-between items-center z-10 shrink-0">
                                 <h2 className="text-xl md:text-2xl font-bold text-white font-mono uppercase tracking-tighter">
                                     <span className="text-primary mr-2">//</span>
                                     {title}
@@ -40,7 +46,7 @@ const CyberModal = ({ isOpen, onClose, title, children }) => {
                             </div>
 
                             {/* Body */}
-                            <div className="p-6">
+                            <div className="p-6 overflow-y-auto custom-scrollbar">
                                 {children}
                             </div>
                         </motion.div>
