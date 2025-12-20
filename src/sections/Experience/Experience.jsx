@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CyberCard from "../../components/ui/CyberCard";
 import SectionHeader from "../../components/ui/SectionHeader";
 import CyberModal from "../../components/ui/CyberModal";
@@ -8,35 +8,55 @@ import { motion, AnimatePresence } from "framer-motion";
 const educationData = [
     {
         id: 1,
-        title: "B.Tech in Computer Engineering",
-        school: "University of Mumbai",
-        year: "2022 - 2026",
-        desc: "Focusing on Data Structures, Algorithms, and System Design. CGPA: 9.2 (Consistent Top 5%).",
+        title: "B.Tech – Information Technology",
+        school: "Parul University",
+        year: "2025 – Present",
+        desc: "Currently in 2nd year, focused on advanced computer science concepts, problem-solving, full stack development, system design, and building scalable applications.",
         semesters: [
             {
-                sem: "SEMESTER 01",
-                sgpa: "9.1 SGPA",
-                subjects: ["Engineering Mathematics I", "Engineering Physics", "Engineering Chemistry", "Basic Electrical Engineering", "Engineering Mechanics"]
+                sem: "CORE STACK & SKILLS",
+                sgpa: "IN_PROGRESS",
+                subjects: ["Data Structures & Algorithms", "DBMS", "Java", "C", "C++", "JavaScript", "REST APIs", "Python Flask", "Amazon Web Services (AWS)", "Docker", "MySQL", "Postman", "Git"]
+            }
+        ]
+    },
+    {
+        id: 2,
+        title: "Diploma – Information Technology",
+        school: "Parul University",
+        year: "2022 – 2025",
+        grade: "CGPA: 8.03",
+        desc: "Built a strong foundation in computer science fundamentals with hands-on exposure to programming and databases.",
+        semesters: [
+            {
+                sem: "SEMESTER 1",
+                sgpa: "COMPLETED",
+                subjects: ["Environmental Science", "Introduction to IT Systems", "Computer Programming", "Electrical Workshop Practice", "Engineering Graphics", "Mathematics - I", "Basic Physics", "Communication Skills - I"]
             },
             {
-                sem: "SEMESTER 02",
-                sgpa: "9.3 SGPA",
-                subjects: ["Engineering Mathematics II", "Engineering Graphics", "C Programming", "Professional Communication", "Basic Electronics"]
+                sem: "SEMESTER 2",
+                sgpa: "COMPLETED",
+                subjects: ["Advanced Computer Programming", "Scripting Language(Python)", "Fundamentals of Electrical and Electronics Engineering", "Mathematics-II", "Communication Skills - II"]
             },
             {
-                sem: "SEMESTER 03",
-                sgpa: "9.0 SGPA",
-                subjects: ["Data Structures", "Discrete Mathematics", "Digital Logic Design", "Computer Graphics", "OOPM (Java)"]
+                sem: "SEMESTER 3",
+                sgpa: "COMPLETED",
+                subjects: ["Entrepreneurship and Start-ups", "Human Resource Planning", "Operating Systems", "Object Oriented Programming with C++", "Computer Organization & Architecture", "Data Structure", "Software Development", "Professional Communication and Critical Thinking"]
             },
             {
-                sem: "SEMESTER 04",
-                sgpa: "9.4 SGPA",
-                subjects: ["Analysis of Algorithms", "Operating Systems", "Computer Networks", "Microprocessors", "Database Management Systems"]
+                sem: "SEMESTER 4",
+                sgpa: "COMPLETED",
+                subjects: ["Essence of Indian Knowledge and Tradition", "Database Management System", "Data Communication Network", "PHP & MYSQL", "Minor Project", "Core JAVA Programing", "Employability Skills"]
             },
             {
-                sem: "SEMESTER 05",
-                sgpa: "9.5 SGPA",
-                subjects: ["Advanced Algorithms", "Software Engineering", "Computer Network Security", "Internet Programming", "Professional Ethics"]
+                sem: "SEMESTER 5",
+                sgpa: "COMPLETED",
+                subjects: ["Internet of Things", "Advanced Programing With JAVA", "Computer Graphics & Image Processing", "Summer Internship", "Major Project-1", "Data Mining", "Advanced Communication Network"]
+            },
+            {
+                sem: "SEMESTER 6",
+                sgpa: "COMPLETED",
+                subjects: ["Indian Constitution", "Cryptography", "Android Application Development", "ASP.NET Programing", "Major Project-2", "Artificial Intelligence"]
             }
         ]
     }
@@ -46,16 +66,20 @@ const workData = [
     {
         id: 1,
         role: "Full Stack Developer Intern",
-        company: "CodeAlpha",
-        period: "2024 - PRESENT",
-        desc: "Deployed scalable web applications using React and Node.js. Optimized database queries reducing load time by 40%.",
+        company: "GravityWrite",
+        period: "Apr 2024 – Jun 2024",
+        location: "Tamil Nadu, IN",
+        type: "Internship",
+        mode: "Remote",
+        desc: "Built and maintained full stack features using React, Node.js, Express, and MongoDB.",
         details: [
-            "Architected and deployed a MERN stack application handling 500+ daily active users.",
-            "Implemented Redis caching strategies to reduce API latency by 40%.",
-            "Collaborated with a team of 4 developers to integrate RESTful APIs and real-time features using Socket.io.",
-            "Designed and implemented a responsive UI using React and Tailwind CSS, improving user retention by 25%."
+            "Built and maintained full stack features using React, Node.js, Express, and MongoDB.",
+            "Designed and optimized RESTful APIs, improving backend performance and response times.",
+            "Worked on database queries and data modeling to support scalable application features.",
+            "Collaborated with AI/ML teams to integrate intelligent, AI-powered functionalities into production workflows.",
+            "Gained experience working with real-world codebases, deployment processes, and collaborative engineering practices."
         ],
-        techStack: ["React", "Node.js", "MongoDB", "Redis", "Docker"]
+        techStack: ["React", "Node.js", "Express", "MongoDB", "REST APIs"]
     }
 ];
 
@@ -65,12 +89,24 @@ const Experience = () => {
     const [selectedWork, setSelectedWork] = useState(null);
     const [expandedSem, setExpandedSem] = useState(null);
 
+    // Listen for custom event to switch tabs from Navbar
+    useEffect(() => {
+        const handleTabSwitch = (e) => {
+            if (e.detail) {
+                setActiveTab(e.detail);
+            }
+        };
+
+        window.addEventListener('set-experience-tab', handleTabSwitch);
+        return () => window.removeEventListener('set-experience-tab', handleTabSwitch);
+    }, []);
+
     const toggleSem = (index) => {
         setExpandedSem(expandedSem === index ? null : index);
     };
 
     return (
-        <section id="experience" className="py-20 pb-0 px-8 max-w-4xl mx-auto">
+        <section id="experience" className="py-20 px-8 max-w-4xl mx-auto">
             <SectionHeader title="EXPERIENCE" subtitle="[HISTORY_TRACKING]" />
 
             {/* TAB SWITCHER */}
@@ -86,7 +122,7 @@ const Experience = () => {
                         onClick={() => setActiveTab("work")}
                         className={`relative z-10 flex items-center gap-2 px-6 py-2 rounded-lg text-sm font-mono tracking-wider transition-colors ${activeTab === "work" ? "text-black font-bold" : "text-gray-400 hover:text-white"}`}
                     >
-                        <FaBriefcase /> WORK_HISTORY
+                        <FaBriefcase /> EXPERIENCE
                     </button>
 
                     {/* Animated Background for Active Tab */}
@@ -118,7 +154,12 @@ const Experience = () => {
                                             <div className="flex justify-between items-start">
                                                 <div>
                                                     <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-primary transition-colors">{work.role}</h3>
-                                                    <h4 className="text-secondary font-mono text-sm mb-4">{work.company}</h4>
+                                                    <h4 className="text-secondary font-mono text-sm mb-2">{work.company}</h4>
+                                                    <div className="mb-4 text-xs font-mono text-muted">
+                                                        <span className="border border-white/10 px-2 py-0.5 rounded bg-white/5">
+                                                            {work.location} · {work.type} · {work.mode}
+                                                        </span>
+                                                    </div>
                                                     <p className="text-gray-400 text-sm md:text-base">
                                                         {work.desc}
                                                     </p>
@@ -148,7 +189,10 @@ const Experience = () => {
                                             <div className="flex justify-between items-start">
                                                 <div>
                                                     <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-secondary transition-colors">{edu.title}</h3>
-                                                    <h4 className="text-muted font-mono text-sm mb-4">{edu.school}</h4>
+                                                    <h4 className="text-muted font-mono text-sm mb-4">
+                                                        {edu.school}
+                                                        {edu.grade && <span className="ml-3 text-secondary border border-secondary/30 px-2 py-0.5 rounded bg-secondary/5 text-xs">{edu.grade}</span>}
+                                                    </h4>
                                                     <p className="text-gray-400 text-sm md:text-base">
                                                         {edu.desc}
                                                     </p>
@@ -229,6 +273,10 @@ const Experience = () => {
                         COMPANY: <span className="text-primary font-bold">{selectedWork?.company}</span>
                         <br />
                         DURATION: <span className="text-primary">{selectedWork?.period}</span>
+                        <br />
+                        LOCATION: <span className="text-white">{selectedWork?.location} ({selectedWork?.mode})</span>
+                        <br />
+                        TYPE: <span className="text-white">{selectedWork?.type}</span>
                     </div>
 
                     <div>

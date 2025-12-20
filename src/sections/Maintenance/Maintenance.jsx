@@ -1,10 +1,19 @@
 import { motion } from "framer-motion";
 import MatrixBackground from "../../components/ui/MatrixBackground";
 import { FaTerminal, FaCog, FaCode } from "react-icons/fa";
+import { useEffect } from "react";
 
 const Maintenance = () => {
+    // Lock body scroll
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, []);
+
     return (
-        <main className="min-h-screen bg-dark text-white relative flex flex-col justify-center items-center overflow-hidden">
+        <main className="min-h-screen bg-dark text-white fixed inset-0 z-[200] flex flex-col justify-center items-center overflow-hidden">
             <MatrixBackground />
 
             <div className="relative z-10 p-8 max-w-2xl w-full text-center">

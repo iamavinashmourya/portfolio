@@ -5,20 +5,36 @@ import Navbar from "./sections/Navbar/Navbar";
 import About from "./sections/About/About";
 import Experience from "./sections/Experience/Experience";
 import ProjectsCyber from "./sections/Projects/ProjectsCyber";
-import Hackathons from "./sections/Hackathons/Hackathons";
 import Maintenance from "./sections/Maintenance/Maintenance";
 import ActivityHub from "./sections/Activity/ActivityHub";
+import Footer from "./sections/Footer/Footer";
+
+import TechSkills from "./sections/Skills/TechSkills";
+import CertificatePanel from "./components/ui/CertificatePanel";
+import ContactModal from "./components/ui/ContactModal";
+import { useState, useEffect } from "react";
 
 const MAINTENANCE_MODE = true;
 
-function App() {
-  if (MAINTENANCE_MODE) {
-    return <Maintenance />;
-  }
+const App = () => {
+  const [showCertificates, setShowCertificates] = useState(false);
+  const [showContact, setShowContact] = useState(false);
+
+  useEffect(() => {
+    const handleOpenCertificates = () => setShowCertificates(true);
+    const handleOpenContact = () => setShowContact(true);
+
+    window.addEventListener('open-certificates', handleOpenCertificates);
+    window.addEventListener('open-contact', handleOpenContact);
+
+    return () => {
+      window.removeEventListener('open-certificates', handleOpenCertificates);
+      window.removeEventListener('open-contact', handleOpenContact);
+    };
+  }, []);
 
   return (
-    <main className="min-h-screen bg-dark text-white relative">
-      <MatrixBackground />
+    <div className="bg-black min-h-screen text-white font-sans selection:bg-primary selection:text-black">
       <Navbar />
       <div className="pt-24">
         <About />
@@ -26,12 +42,15 @@ function App() {
         <CommandDeck />
         <ActivityHub />
         <ProjectsCyber />
-        <Hackathons />
+        <TechSkills />
+        <Footer />
       </div>
 
-
-    </main>
+      {MAINTENANCE_MODE && <Maintenance />}
+      <CertificatePanel isOpen={showCertificates} onClose={() => setShowCertificates(false)} />
+      <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />
+    </div>
   );
-}
+};
 
 export default App;
