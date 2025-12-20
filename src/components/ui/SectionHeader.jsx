@@ -8,7 +8,7 @@ const SectionHeader = ({ title, subtitle }) => {
                 <div className="h-[2px] w-12 bg-primary"></div>
                 <h3 className="text-secondary font-mono tracking-widest text-sm uppercase">{subtitle}</h3>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter text-white">
+            <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter text-white">
                 <GlitchText text={title} />
             </h2>
             <motion.div
