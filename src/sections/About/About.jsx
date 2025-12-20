@@ -31,7 +31,7 @@ const About = () => {
                             <div className="h-1 w-12 bg-primary/50 rounded-full"></div>
                             <span className="font-mono text-primary text-sm tracking-widest">SYSTEM_ID</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-mono font-bold text-white tracking-tight">
+                        <h1 className="text-3xl sm:text-4xl md:text-6xl font-mono font-bold text-white tracking-tight break-words">
                             AVINASH_<span className="text-primary drop-shadow-[0_0_10px_rgba(0,255,157,0.5)]">MOURYA</span>
                             <span className="animate-pulse text-primary">_</span>
                         </h1>

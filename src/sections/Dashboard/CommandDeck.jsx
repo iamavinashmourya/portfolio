@@ -140,7 +140,7 @@ const CommandDeck = () => {
 
                     <div className="h-full flex flex-col justify-center items-center gap-6 relative z-0">
                         <div className="text-center">
-                            <div className="text-primary text-8xl md:text-[10rem] font-black tracking-tighter drop-shadow-[0_0_30px_rgba(0,255,157,0.5)] leading-none pt-[40px]">
+                            <div className="text-primary text-6xl sm:text-8xl md:text-[10rem] font-black tracking-tighter drop-shadow-[0_0_30px_rgba(0,255,157,0.5)] leading-none pt-[40px]">
                                 {stats.totalSolved}
                             </div>
                             <div className="text-gray-400 font-mono tracking-[0.3em] text-sm md:text-lg mt-4 font-bold uppercase">Problems Solved</div>

@@ -98,7 +98,7 @@ const SkillCategory = ({ title, icon: Icon, skills }) => {
                 <h3 className="text-xl font-bold text-white tracking-tight">{title}</h3>
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2 md:gap-3">
                 {skills.map((skill, index) => (
                     <SkillTag key={index} skill={skill} />
                 ))}
