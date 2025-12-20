@@ -116,11 +116,34 @@ async function fetchHackerRank() {
     }
 }
 
+
+async function fetchStackOverflow() {
+    try {
+        const userId = '25598878';
+        console.log(`Fetching StackOverflow: User ${userId}`);
+        const { data } = await axios.get(`https://api.stackexchange.com/2.3/users/${userId}?order=desc&sort=reputation&site=stackoverflow`);
+
+        if (data.items && data.items.length > 0) {
+            const user = data.items[0];
+            console.log(`✅ StackOverflow Success: ${user.reputation} Rep`);
+            return {
+                reputation: user.reputation,
+                badge: "ACTIVE" // You can enhance this to check user.badge_counts if desired
+            };
+        }
+        return null;
+    } catch (error) {
+        console.error('StackOverflow Error:', error.message);
+        return null;
+    }
+}
+
 async function main() {
     console.log('🚀 Starting Offline Sync...');
 
     const gfg = await fetchGFG();
     const hr = await fetchHackerRank();
+    const so = await fetchStackOverflow();
 
     // Default Fallback values based on visual inspection (Dec 2025)
     // Solved: 3, Score: 5
@@ -136,6 +159,11 @@ async function main() {
         hackerrank: {
             certificates: hr !== null ? hr : 5, // Fallback to 5
             isReal: hr !== null
+        },
+        stackoverflow: {
+            reputation: (so && so.reputation) ? so.reputation : 0,
+            badge: (so && so.badge) ? so.badge : "BRONZE",
+            isReal: !!so
         }
     };
 
