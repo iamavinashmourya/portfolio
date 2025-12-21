@@ -1,6 +1,0 @@
-feat: Optimize UI for Mobile Devices
-
-*   Reduced heading font sizes for mobile to prevent overflow (SectionHeader, About).
-*   Adjusted CommandDeck "Total Solved" font size for small screens.
-*   Added responsive spacing for TechSkills tags.
-*   Ensured "AVINASH_MOURYA" breaks words correctly on very narrow devices.
