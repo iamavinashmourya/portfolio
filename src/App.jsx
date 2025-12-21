@@ -14,7 +14,7 @@ import CertificatePanel from "./components/ui/CertificatePanel";
 import ContactModal from "./components/ui/ContactModal";
 import { useState, useEffect } from "react";
 
-const MAINTENANCE_MODE = false;
+const MAINTENANCE_MODE = true;
 
 const App = () => {
   const [showCertificates, setShowCertificates] = useState(false);
