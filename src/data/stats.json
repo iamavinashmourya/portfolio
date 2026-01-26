@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-25T02:03:04.100Z",
+  "lastUpdated": "2026-01-26T02:02:31.020Z",
   "geeksforgeeks": {
     "problems": 7,
     "score": 15,
@@ -7,7 +7,7 @@
   },
   "hackerrank": {
     "certificates": 5,
-    "isReal": false
+    "isReal": true
   },
   "stackoverflow": {
     "reputation": 1,
