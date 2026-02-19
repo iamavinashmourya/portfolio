@@ -39,6 +39,7 @@ const ProblemSolving = () => {
                     label="LeetCode"
                     sub={`Ranking: ${data.leetcode.ranking || "N/A"}`}
                     value={data.leetcode.solved}
+                    unit="Solved"
                     link="https://leetcode.com/iamavinashmourya/"
                 />
                 <StatRow
@@ -46,12 +47,13 @@ const ProblemSolving = () => {
                     label="GeeksForGeeks"
                     sub={`Coding Score: ${data.geeksforgeeks.score}`}
                     value={data.geeksforgeeks.problems}
+                    unit="Problems"
                     link="https://auth.geeksforgeeks.org/user/avinash30o0/"
                 />
                 <StatRow
                     icon={SiHackerrank}
                     label="HackerRank"
-                    sub="Verified Skills: Problem Solving"
+                    sub="Verified: Problem Solving"
                     value={data.hackerrank.badges}
                     unit="Badges"
                     link="https://www.hackerrank.com/profile/avinashgoweb"
