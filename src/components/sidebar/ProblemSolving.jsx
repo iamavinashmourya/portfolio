@@ -2,17 +2,18 @@ import { SiLeetcode, SiGeeksforgeeks, SiHackerrank } from "react-icons/si";
 import { FaGithub } from "react-icons/fa";
 import statsData from "../../data/stats.json";
 
-const StatRow = ({ icon: Icon, label, value, sub, link }) => (
+const StatRow = ({ icon: Icon, label, value, unit, sub, link }) => (
     <a href={link} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between py-6 border-b border-border hover:bg-surface px-8 lg:px-12 transition-colors">
-        <div className="flex items-center gap-6">
-            <Icon className="text-2xl text-muted group-hover:text-white transition-colors" />
-            <div>
-                <h4 className="text-xl font-bold text-gray-200 group-hover:text-white">{label}</h4>
-                <p className="font-mono text-xs text-muted uppercase tracking-wider">{sub}</p>
+        <div className="flex items-center gap-4 lg:gap-6">
+            <Icon className="text-2xl text-muted group-hover:text-white transition-colors shrink-0" />
+            <div className="min-w-0">
+                <h4 className="text-lg lg:text-xl font-bold text-gray-200 group-hover:text-white truncate">{label}</h4>
+                <p className="font-mono text-[10px] lg:text-xs text-muted uppercase tracking-wider truncate">{sub}</p>
             </div>
         </div>
-        <div className="text-right">
-            <span className="block text-3xl font-bold text-white tracking-tight group-hover:text-accent transition-colors">{value}</span>
+        <div className="text-right pl-4 shrink-0">
+            <span className="block text-2xl lg:text-3xl font-bold text-white tracking-tight group-hover:text-accent transition-colors">{value}</span>
+            {unit && <span className="block text-xs text-muted font-mono mt-0.5">{unit}</span>}
         </div>
     </a>
 );
@@ -29,7 +30,7 @@ const ProblemSolving = () => {
         <div className="">
             <div className="px-8 lg:px-12 py-8 border-b border-border">
                 <h2 className="mono-tag mb-2">// 02. METRICS</h2>
-                <h3 className="text-4xl font-bold text-white">Problem Solving</h3>
+                <h3 className="text-3xl lg:text-4xl font-bold text-white">Problem Solving</h3>
             </div>
 
             <div className="flex flex-col">
@@ -51,14 +52,16 @@ const ProblemSolving = () => {
                     icon={SiHackerrank}
                     label="HackerRank"
                     sub="Verified Skills: Problem Solving"
-                    value={`${data.hackerrank.badges} Badges`}
+                    value={data.hackerrank.badges}
+                    unit="Badges"
                     link="https://www.hackerrank.com/profile/avinashgoweb"
                 />
                 <StatRow
                     icon={FaGithub}
                     label="GitHub"
                     sub={`${data.github.repos} Repositories`}
-                    value={`${data.github.contributions} Contributions`}
+                    value={data.github.contributions}
+                    unit="Contributions"
                     link="https://github.com/iamavinashmourya"
                 />
             </div>
