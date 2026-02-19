@@ -73,7 +73,7 @@ const CertificatePanel = ({ isOpen, onClose }) => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={onClose}
-                        className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm"
+                        className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
                     />
 
                     {/* Side Panel */}
@@ -81,42 +81,55 @@ const CertificatePanel = ({ isOpen, onClose }) => {
                         initial={{ x: "100%" }}
                         animate={{ x: 0 }}
                         exit={{ x: "100%" }}
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        className="fixed top-0 right-0 z-[70] h-full w-full md:w-[600px] bg-black border-l border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col"
+                        transition={{ type: "tween", duration: 0.4, ease: "circOut" }}
+                        className="fixed top-0 right-0 z-[70] h-full w-full md:w-[650px] bg-[#0a0a0a] border-l border-white/20 flex flex-col"
                     >
                         {/* Header */}
-                        <div className="flex justify-between items-center p-6 border-b border-white/10 bg-white/5 backdrop-blur-md">
-                            <h2 className="text-xl font-bold text-white font-mono tracking-tighter">
-                                <span className="text-primary mr-2">//</span>
-                                CERTIFICATES_ARCHIVE
-                            </h2>
+                        <div className="flex justify-between items-center p-8 border-b border-white/20 bg-[#0a0a0a]">
+                            <div>
+                                <h2 className="text-2xl font-bold text-white tracking-tighter mb-1">
+                                    CERTIFICATES_ARCHIVE
+                                </h2>
+                                <p className="font-mono text-xs text-gray-500 uppercase tracking-widest">
+                                    Total Records: {certificates.length}
+                                </p>
+                            </div>
                             <button
                                 onClick={onClose}
-                                className="p-2 text-gray-400 hover:text-red-500 transition-colors rounded-full hover:bg-white/5"
+                                className="w-10 h-10 flex items-center justify-center border border-white/20 hover:bg-white hover:text-black hover:border-white transition-all duration-300"
                             >
-                                <IoClose size={24} />
+                                <IoClose size={20} />
                             </button>
                         </div>
 
                         {/* Content Grid */}
-                        <div className="flex-1 overflow-y-auto p-6 custom-scrollbar bg-black/95">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="flex-1 overflow-y-auto p-8 custom-scrollbar bg-[#0a0a0a]">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 {certificates.map((src, index) => (
                                     <div
                                         key={index}
                                         onClick={() => setSelectedIndex(index)}
-                                        className="relative group cursor-pointer"
+                                        className="group cursor-pointer"
                                     >
-                                        <div className="absolute inset-0 border border-white/10 group-hover:border-primary/50 transition-colors z-10" />
-                                        <div className="aspect-[4/3] bg-white/5 overflow-hidden relative">
+                                        <div className="relative aspect-[4/3] bg-white/5 overflow-hidden border border-white/10 group-hover:border-white/50 transition-colors duration-300">
+                                            {/* Image */}
                                             <img
                                                 src={src}
                                                 alt={`Certificate ${index + 1}`}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                                                 loading="lazy"
                                             />
-                                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-20">
-                                                <span className="text-xs font-mono text-primary border border-primary px-2 py-1 bg-black/80">VIEW_FULL</span>
+
+                                            {/* Overlay */}
+                                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                                <span className="font-mono text-xs text-white border border-white px-3 py-1 bg-black tracking-widest uppercase hover:bg-white hover:text-black transition-colors">
+                                                    View_File
+                                                </span>
+                                            </div>
+
+                                            {/* ID Badge */}
+                                            <div className="absolute top-2 left-2 px-2 py-0.5 bg-black/80 border border-white/20 text-[10px] font-mono text-white/70">
+                                                #{String(index + 1).padStart(2, '0')}
                                             </div>
                                         </div>
                                     </div>
@@ -132,57 +145,56 @@ const CertificatePanel = ({ isOpen, onClose }) => {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="fixed inset-0 z-[80] bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-4 md:p-12"
+                                className="fixed inset-0 z-[80] bg-black/90 backdrop-blur-md flex flex-col items-center justify-center"
+                                onClick={() => setSelectedIndex(null)}
                             >
-                                {/* Counter & Close */}
-                                <div className="absolute top-6 left-0 right-0 flex justify-between items-center px-8 z-50">
-                                    <div className="bg-black/50 border border-white/10 px-4 py-1 rounded-full text-white font-mono text-sm tracking-widest backdrop-blur-md">
-                                        {selectedIndex + 1} / {certificates.length}
+                                {/* Header */}
+                                <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-center z-50 pointer-events-none">
+                                    <div className="pointer-events-auto bg-black border border-white/20 px-4 py-2 text-white font-mono text-xs tracking-widest">
+                                        RECORD: {String(selectedIndex + 1).padStart(2, '0')} / {String(certificates.length).padStart(2, '0')}
                                     </div>
 
                                     <button
                                         onClick={() => setSelectedIndex(null)}
-                                        className="p-3 text-white bg-white/10 hover:bg-red-500/20 hover:text-red-500 border border-white/10 hover:border-red-500 rounded-full transition-all backdrop-blur-md"
+                                        className="pointer-events-auto w-12 h-12 flex items-center justify-center border border-white/20 text-white hover:bg-white hover:text-black transition-all"
                                     >
                                         <IoClose size={24} />
                                     </button>
                                 </div>
 
-                                {/* Navigation Buttons (Fixed to Viewport) */}
+                                {/* Navigation (Click propagation stopped) */}
                                 <button
                                     onClick={handlePrev}
-                                    className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-primary hover:bg-white/10 rounded-full transition-all z-[90] hidden md:block"
+                                    className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-4 text-white/30 hover:text-white transition-all z-[90] hidden md:block"
                                 >
-                                    <FaChevronLeft size={30} />
+                                    <FaChevronLeft size={40} />
                                 </button>
 
                                 <button
                                     onClick={handleNext}
-                                    className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-primary hover:bg-white/10 rounded-full transition-all z-[90] hidden md:block"
+                                    className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-4 text-white/30 hover:text-white transition-all z-[90] hidden md:block"
                                 >
-                                    <FaChevronRight size={30} />
+                                    <FaChevronRight size={40} />
                                 </button>
 
-                                {/* Main Image Container */}
+                                {/* Main Image */}
                                 <div
-                                    className="relative max-w-[90vw] max-h-[85vh] flex items-center justify-center pointer-events-none"
+                                    className="relative max-w-[95vw] max-h-[85vh] p-2 border border-white/10 bg-black"
                                     onClick={(e) => e.stopPropagation()}
                                 >
-                                    {/* Image */}
                                     <motion.img
                                         key={selectedIndex}
-                                        initial={{ opacity: 0, scale: 0.95 }}
+                                        initial={{ opacity: 0, scale: 0.98 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         transition={{ duration: 0.2 }}
                                         src={certificates[selectedIndex]}
                                         alt={`Certificate ${selectedIndex + 1}`}
-                                        className="max-w-full max-h-[85vh] object-contain drop-shadow-[0_0_15px_rgba(34,197,94,0.6)] pointer-events-auto"
+                                        className="max-w-full max-h-[80vh] object-contain"
                                     />
-                                </div>
-
-                                {/* Instructions */}
-                                <div className="absolute bottom-6 text-white/40 text-xs font-mono tracking-wider pointer-events-none">
-                                    Press ESC to close • Use arrow keys to navigate
+                                    {/* Tech Line */}
+                                    <div className="absolute -bottom-8 left-0 text-white/40 text-[10px] font-mono tracking-widest">
+                                        // VERIFIED_CREDENTIAL
+                                    </div>
                                 </div>
                             </motion.div>
                         )}

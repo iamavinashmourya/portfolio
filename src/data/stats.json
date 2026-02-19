@@ -1,13 +1,23 @@
 {
-  "lastUpdated": "2026-02-02T02:25:39.889Z",
+  "lastUpdated": "2026-02-19T18:36:06.053Z",
+  "leetcode": {
+    "solved": 96,
+    "rating": "1850+",
+    "ranking": 1502767
+  },
   "geeksforgeeks": {
     "problems": 9,
     "score": 19,
     "isReal": true
   },
   "hackerrank": {
+    "badges": 5,
     "certificates": 5,
     "isReal": true
+  },
+  "github": {
+    "repos": 15,
+    "contributions": 631
   },
   "stackoverflow": {
     "reputation": 1,
