@@ -1,55 +1,70 @@
 import "./App.css";
-import MatrixBackground from "./components/ui/MatrixBackground";
-import CommandDeck from "./sections/Dashboard/CommandDeck";
-import Navbar from "./sections/Navbar/Navbar";
-import About from "./sections/About/About";
-import Experience from "./sections/Experience/Experience";
-import ProjectsCyber from "./sections/Projects/ProjectsCyber";
-import Maintenance from "./sections/Maintenance/Maintenance";
-import ActivityHub from "./sections/Activity/ActivityHub";
-import Footer from "./sections/Footer/Footer";
-
-import TechSkills from "./sections/Skills/TechSkills";
-import CertificatePanel from "./components/ui/CertificatePanel";
-import ContactModal from "./components/ui/ContactModal";
-import { useState, useEffect } from "react";
-
-const MAINTENANCE_MODE = false;
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import MotionSection from "./components/ui/MotionSection";
+import SidebarLayout from "./components/layout/SidebarLayout";
+import SidebarProfile from "./components/sidebar/SidebarProfile";
+import AboutSection from "./components/sidebar/AboutSection";
+import Education from "./components/sidebar/Education";
+import ProblemSolving from "./components/sidebar/ProblemSolving";
+import ExperienceList from "./components/sidebar/ExperienceList";
+import ProjectsList from "./components/sidebar/ProjectsList";
+import TechStackList from "./components/sidebar/TechStackList";
+import Certificates from "./components/sidebar/Certificates";
+import Preloader from "./components/ui/Preloader";
 
 const App = () => {
-  const [showCertificates, setShowCertificates] = useState(false);
-  const [showContact, setShowContact] = useState(false);
-
-  useEffect(() => {
-    const handleOpenCertificates = () => setShowCertificates(true);
-    const handleOpenContact = () => setShowContact(true);
-
-    window.addEventListener('open-certificates', handleOpenCertificates);
-    window.addEventListener('open-contact', handleOpenContact);
-
-    return () => {
-      window.removeEventListener('open-certificates', handleOpenCertificates);
-      window.removeEventListener('open-contact', handleOpenContact);
-    };
-  }, []);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="bg-black min-h-screen text-white font-sans selection:bg-primary selection:text-black">
-      <Navbar />
-      <div className="pt-24">
-        <About />
-        <Experience />
-        <CommandDeck />
-        <ActivityHub />
-        <ProjectsCyber />
-        <TechSkills />
-        <Footer />
-      </div>
+    <>
+      <AnimatePresence mode="wait">
+        {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+      </AnimatePresence>
 
-      {MAINTENANCE_MODE && <Maintenance />}
-      <CertificatePanel isOpen={showCertificates} onClose={() => setShowCertificates(false)} />
-      <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />
-    </div>
+      {!isLoading && (
+        <SidebarLayout
+          sidebar={
+            <SidebarProfile />
+          }
+          content={
+            <>
+              <MotionSection id="about" className="scroll-mt-0">
+                <AboutSection />
+              </MotionSection>
+
+              <MotionSection id="education" className="scroll-mt-0">
+                <Education />
+              </MotionSection>
+
+              <MotionSection id="problem-solving" className="scroll-mt-0">
+                <ProblemSolving />
+              </MotionSection>
+
+              <MotionSection id="experience" className="scroll-mt-0">
+                <ExperienceList />
+              </MotionSection>
+
+              <MotionSection id="skills" className="scroll-mt-0">
+                <TechStackList />
+              </MotionSection>
+
+              <MotionSection id="projects" className="scroll-mt-0">
+                <ProjectsList />
+              </MotionSection>
+
+              <MotionSection id="certificates" className="scroll-mt-0">
+                <Certificates />
+              </MotionSection>
+
+              <footer className="pt-12 pb-6 text-center text-gray-500 text-sm">
+                <p>&copy; {new Date().getFullYear()} Avinash Mourya. Built with React &amp; Tailwind.</p>
+              </footer>
+            </>
+          }
+        />
+      )}
+    </>
   );
 };
 

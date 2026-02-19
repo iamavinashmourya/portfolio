@@ -7,16 +7,31 @@ export default {
     theme: {
         extend: {
             colors: {
-                dark: "#050505",
-                primary: "#39FF14", // Acid Green
-                secondary: "#00f0ff", // Holographic Cyan
-                danger: "#ff003c", // Signal Red
-                muted: "#e0e0e0", // Silver
+                bg: "#050505",       // Jet Black
+                surface: "#121212",  // Dark Gray
+                text: "#f0f0f0",     // Off-white
+                muted: "#888888",    // Mid Gray
+                border: "#333333",   // Grid Lines
+                accent: "#ff3333",   // Swiss Red (Minimal)
             },
-            animation: {
-                "spin-slow": "spin 3s linear infinite",
+            fontFamily: {
+                sans: ['"Inter"', 'sans-serif'],
+                mono: ['"JetBrains Mono"', 'monospace'],
             },
+            borderRadius: {
+                'none': '0px',
+                'sm': '0px',
+                DEFAULT: '0px',
+                'md': '0px',
+                'lg': '0px',
+                'xl': '0px',
+                '2xl': '0px',
+                '3xl': '0px',
+                'full': '9999px', // Keep circles for avatars
+            }
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
 }

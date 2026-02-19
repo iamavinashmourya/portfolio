@@ -1,101 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --background-color: #050505;
-  --btn-color: #0987f2;
-  --btn-text-color: #fff;
-  --project-card-bg: #ffffff00;
-  --text-color: #222;
-  --form-text-color: #555;
-  --footer-text-color: #888;
+  color-scheme: dark;
 }
 
-[data-theme="dark"] {
-  --background-color: #222;
-  --btn-color: #fff;
-  --btn-text-color: #222;
-  --project-card-bg: #fff;
-  --text-color: #fff;
-  --form-text-color: #fff;
-  --footer-text-color: #bbb;
+body {
+  background-color: #050505;
+  color: #f0f0f0;
+  overflow-x: hidden;
+  font-feature-settings: "ss01", "ss02", "cv01", "cv02";
 }
 
-/* Body and Root styles removed to allow Tailwind full-width layout */
-
-h1,
-h2,
-h3,
-p {
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
+/* Custom Scrollbar - Minimal clean block */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-h2,
-h3,
-p {
-  font-family: "Roboto Mono", monospace;
+::-webkit-scrollbar-track {
+  background: #050505;
+  border-left: 1px solid #333;
 }
 
-h1,
-h2 {
-  text-transform: uppercase;
+::-webkit-scrollbar-thumb {
+  background: #444;
 }
 
-h2,
-h3 {
-  font-size: 20px;
+::-webkit-scrollbar-thumb:hover {
+  background: #ff3333;
 }
 
-h1 {
-  font-family: 'Rubik', sans-serif;
-  font-size: 32px;
+/* Swiss Utilities */
+.swiss-border {
+  @apply border-b border-[#333333];
 }
 
-p {
-  font-size: 16px;
-  font-weight: 300;
+.swiss-card {
+  @apply border border-[#333333] bg-[#0a0a0a] p-6 hover:bg-[#111111] transition-colors duration-200;
 }
 
-.sectionTitle {
-  margin-bottom: 30px;
+.text-massive {
+  @apply text-5xl md:text-7xl font-bold tracking-tighter;
 }
 
-.hover {
-  cursor: pointer;
-}
-
-@media (width >=800px) {
-  #root {
-    gap: 100px;
-  }
-
-  h1 {
-    font-size: 40px;
-  }
-
-  h2,
-  h3 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 20px;
-  }
-
-  .sectionTitle {
-    margin-bottom: 60px;
-  }
-}
-
-@media (width >=1400px) {
-  #root {
-    gap: 200px;
-  }
-
-  h1 {
-    font-size: 48px;
-  }
-
-  .sectionTitle {
-    margin-bottom: 75px;
-  }
+.mono-tag {
+  @apply font-mono text-xs uppercase tracking-widest text-muted;
 }
