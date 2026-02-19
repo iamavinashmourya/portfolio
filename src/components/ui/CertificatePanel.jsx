@@ -85,18 +85,19 @@ const CertificatePanel = ({ isOpen, onClose }) => {
                         className="fixed top-0 right-0 z-[70] h-full w-full md:w-[650px] bg-[#0a0a0a] border-l border-white/20 flex flex-col"
                     >
                         {/* Header */}
-                        <div className="flex justify-between items-center p-8 border-b border-white/20 bg-[#0a0a0a]">
-                            <div>
-                                <h2 className="text-2xl font-bold text-white tracking-tighter mb-1">
+                        {/* Header */}
+                        <div className="flex justify-between items-center p-6 md:p-8 border-b border-white/20 bg-[#0a0a0a] gap-4">
+                            <div className="min-w-0">
+                                <h2 className="text-xl md:text-2xl font-bold text-white tracking-tighter mb-1 truncate md:overflow-visible md:whitespace-normal">
                                     CERTIFICATES_ARCHIVE
                                 </h2>
-                                <p className="font-mono text-xs text-gray-500 uppercase tracking-widest">
+                                <p className="font-mono text-xs text-gray-500 uppercase tracking-widest truncate">
                                     Total Records: {certificates.length}
                                 </p>
                             </div>
                             <button
                                 onClick={onClose}
-                                className="w-10 h-10 flex items-center justify-center border border-white/20 hover:bg-white hover:text-black hover:border-white transition-all duration-300"
+                                className="w-10 h-10 flex items-center justify-center border border-white/20 hover:bg-white hover:text-black hover:border-white transition-all duration-300 shrink-0"
                             >
                                 <IoClose size={20} />
                             </button>

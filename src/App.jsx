@@ -57,7 +57,7 @@ const App = () => {
                 <Certificates />
               </MotionSection>
 
-              <footer className="pt-12 pb-6 text-center text-gray-500 text-sm">
+              <footer className="pt-12 pb-6 text-center text-gray-500 text-xs md:text-sm">
                 <p>&copy; {new Date().getFullYear()} Avinash Mourya. Built with React &amp; Tailwind.</p>
               </footer>
             </>
