@@ -31,6 +31,11 @@ body {
   background: #ff3333;
 }
 
+::selection {
+  background: #ff3333;
+  color: #fff;
+}
+
 /* Swiss Utilities */
 .swiss-border {
   @apply border-b border-[#333333];
