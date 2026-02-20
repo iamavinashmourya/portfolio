@@ -64,8 +64,6 @@ This project includes a **GitHub Actions** workflow (`.github/workflows/update_s
 ```
 
 ## © Copyright
-
-This project is a personal portfolio and is **not** open source.
 © 2026 Avinash Mourya. All Rights Reserved.
 
 ---
