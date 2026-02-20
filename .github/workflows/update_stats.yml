@@ -1,3 +1,4 @@
+# Workflow to update coding stats daily
 name: Update Coding Stats
 
 on:
