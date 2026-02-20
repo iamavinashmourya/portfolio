@@ -1,56 +1,96 @@
-# 🌐 Portfolio Website  
+# 🌐 Neo-Swiss Portfolio  
 
-Welcome to my portfolio website! This project showcases my work, skills, and experiences. It is built using modern web development technologies for a fast and responsive user experience.  
+> A modern, minimalist developer portfolio built with a focus on **Neo-Swiss design principles**, **bold typography**, and **high performance**.
 
-## 🛠️ Technologies Used  
+![Portfolio Preview](public/preview.png)
 
-- **React JS**: A JavaScript library for building user interfaces.  
-- **Vite**: A lightning-fast build tool for modern web projects.  
-- **Node.js**: For the server-side environment and backend functionality.  
-- **JSX**: Syntax extension for writing HTML elements in JavaScript.  
+## 🎨 Design Philosophy
 
-## 📋 Features  
+This project adopts a **Neo-Swiss** aesthetic, characterized by:
+-   **Minimalism**: Clean layouts with ample whitespace.
+-   **Bold Typography**: Using *Inter* and *JetBrains Mono* for strong visual hierarchy.
+-   **Swiss Red Accents**: Vibrant `#ff3333` highlights for selection, scrollbars, and interactive elements.
+-   **Glassmorphism**: Subtle transparency effects for modals and cards.
 
-- Fully responsive design for all devices.  
-- Fast loading and optimized performance.  
-- Interactive and user-friendly interface.  
-- Dynamic routing for seamless navigation.  
+## 🛠️ Tech Stack
 
-## 🚀 Installation and Setup  
+### Core
+-   **React 18**: Component-based UI architecture.
+-   **Vite**: Next-generation frontend tooling for blazing fast builds.
+-   **Tailwind CSS**: Utility-first CSS framework for rapid styling.
 
-To run the project locally, follow these steps:  
+### UI & Animations
+-   **Framer Motion**: Production-ready animation library for React.
+-   **Lucide React & React Icons**: Comprehensive icon libraries.
+-   **React PDF**: Rendering PDF documents (Resumes/Certificates).
 
-1. **Clone the repository:**  
-   ```bash  
-   git clone https://github.com/your-username/portfolio.git  
-   cd portfolio  
-   ```  
+### Automation & Backend
+-   **Node.js**: Scripting environment for data fetching.
+-   **Cheerio & Axios**: Scraping and fetching user statistics.
+-   **GitHub Actions**: Cron workflows to auto-update coding stats daily.
 
-2. **Install dependencies:**  
-   ```bash  
-   npm install  
-   ```  
+## � Key Features
 
-3. **Run the development server:**  
-   ```bash  
-   npm run dev  
-   ```  
+-   **Real-time Coding Stats**: Automatically fetches and displays stats from **LeetCode**, **GeeksForGeeks**, **HackerRank**, and **GitHub**.
+-   **Responsive Layout**: Optimized for all devices, from large 4K monitors to mobile screens.
+-   **Interactive Preloader**: Slick entry animation with percentage counter.
+-   **Certificate Archive**: Modal-based gallery for viewing certifications.
+-   **Smart Navigation**: Sidebar layout that collapses/adapts based on screen size.
 
-4. **Access the app:**  
-   Open your browser and visit [http://localhost:5173](http://localhost:5173) (default Vite server port).  
+## 📦 Installation and Setup
 
-## 📂 Project Structure  
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/iamavinashmourya/portfolio.git
+    cd portfolio
+    ```
 
-- `src/`: Contains all source code files, including components, styles, and assets.  
-- `public/`: Static files like images and favicon.  
-- `package.json`: Project dependencies and scripts.  
-- `vite.config.js`: Configuration for Vite.  
- 
- 
-## 📜 License  
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-This project is licensed under the [MIT License](LICENSE).  
+3.  **Run the Stats Sync Script (Optional first run):**
+    ```bash
+    npm run sync
+    ```
 
-## 🙌 Acknowledgments  
+4.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
+    Visit [http://localhost:5173](http://localhost:5173).
 
-Thanks to the open-source community for providing the tools and resources used in this project.  
+## 🤖 Automated Workflows
+
+This project includes a **GitHub Actions** workflow (`.github/workflows/update_stats.yml`) that:
+-   Runs **daily at 00:00 UTC** (5:30 AM IST).
+-   Executes `scripts/sync-stats.js` to fetch fresh data from coding platforms.
+-   Auto-commits the updated `src/data/stats.json` back to the repository.
+
+## 📂 Project Structure
+
+```
+├── .github/workflows/  # Automation workflows
+├── scripts/            # Node.js scripts (stats fetcher)
+├── src/
+│   ├── assets/         # Images and icons
+│   ├── components/     # React components
+│   │   ├── layout/     # Structural components (Sidebar, etc.)
+│   │   ├── sidebar/    # Section content (About, Skills, etc.)
+│   │   └── ui/         # Reusable UI elements (Cards, Buttons)
+│   ├── data/           # Static and fetched data (stats.json)
+│   ├── App.jsx         # Main application component
+│   └── index.css       # Global styles & Tailwind directives
+└── package.json        # Dependencies & Scripts
+```
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+<p align="center">
+  Built with ❤️ by <strong>Avinash Mourya</strong>
+</p>
