@@ -1,11 +1,9 @@
-# Workflow to update coding stats daily
 name: Update Coding Stats
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Run daily at midnight UTC
-  workflow_dispatch: # Allow manual trigger
-
+    - cron: '0 0 * * *' 
+  workflow_dispatch: 
 permissions:
   contents: write
 
