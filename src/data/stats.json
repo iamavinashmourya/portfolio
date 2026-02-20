@@ -7,13 +7,21 @@
   },
   "geeksforgeeks": {
     "problems": 9,
-    "score": 19
+    "score": 19,
+    "isReal": true
   },
   "hackerrank": {
-    "badges": 5
+    "badges": 5,
+    "certificates": 5,
+    "isReal": true
   },
   "github": {
     "repos": 15,
     "contributions": 631
+  },
+  "stackoverflow": {
+    "reputation": 1,
+    "badge": "ACTIVE",
+    "isReal": true
   }
 }
