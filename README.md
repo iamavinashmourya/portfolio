@@ -1,4 +1,4 @@
-# 🌐 Neo-Swiss Portfolio  
+# My Portfolio  
 
 > A modern, minimalist developer portfolio built with a focus on **Neo-Swiss design principles**, **bold typography**, and **high performance**.
 
