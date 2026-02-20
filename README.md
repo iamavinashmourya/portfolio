@@ -37,29 +37,7 @@ This project adopts a **Neo-Swiss** aesthetic, characterized by:
 -   **Certificate Archive**: Modal-based gallery for viewing certifications.
 -   **Smart Navigation**: Sidebar layout that collapses/adapts based on screen size.
 
-## 📦 Installation and Setup
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/iamavinashmourya/portfolio.git
-    cd portfolio
-    ```
-
-2.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
-
-3.  **Run the Stats Sync Script (Optional first run):**
-    ```bash
-    npm run sync
-    ```
-
-4.  **Start the development server:**
-    ```bash
-    npm run dev
-    ```
-    Visit [http://localhost:5173](http://localhost:5173).
 
 ## 🤖 Automated Workflows
 
@@ -85,9 +63,10 @@ This project includes a **GitHub Actions** workflow (`.github/workflows/update_s
 └── package.json        # Dependencies & Scripts
 ```
 
-## 📜 License
+## © Copyright
 
-This project is licensed under the [MIT License](LICENSE).
+This project is a personal portfolio and is **not** open source.
+© 2026 Avinash Mourya. All Rights Reserved.
 
 ---
 
