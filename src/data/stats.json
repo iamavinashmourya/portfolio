@@ -1,27 +1,19 @@
 {
-  "lastUpdated": "2026-02-19T18:36:06.053Z",
+  "lastUpdated": "2026-02-21T02:34:26.001Z",
   "leetcode": {
-    "solved": 96,
+    "solved": 97,
     "rating": "1850+",
-    "ranking": 1502767
+    "ranking": 1491689
   },
   "geeksforgeeks": {
     "problems": 9,
-    "score": 19,
-    "isReal": true
+    "score": 19
   },
   "hackerrank": {
-    "badges": 5,
-    "certificates": 5,
-    "isReal": true
+    "badges": 5
   },
   "github": {
     "repos": 15,
-    "contributions": 631
-  },
-  "stackoverflow": {
-    "reputation": 1,
-    "badge": "ACTIVE",
-    "isReal": true
+    "contributions": 657
   }
 }
